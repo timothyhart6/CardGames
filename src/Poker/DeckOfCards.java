@@ -1,11 +1,10 @@
 package Poker;
 
-import java.util.ArrayList;
-import java.util.stream.Collectors;
+import java.util.Hashtable;
 
 public class  DeckOfCards<deck> {
 
-    private ArrayList<String> deck = new ArrayList<String>(52);
+    private Hashtable deck = new Hashtable();
 
     public DeckOfCards(){
         createDeck();
@@ -16,8 +15,10 @@ public class  DeckOfCards<deck> {
         String[] v = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
         int[] value = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
         for (int i = 0; i < 4; i++) {
+            int c = 2;
             for (int j= 0; j < 13; j++) {
-                deck.add(v[j] + s[i]);
+                deck.put((v[j] + s[i]), c);
+                c++;
             }
         }
     }
@@ -27,15 +28,15 @@ public class  DeckOfCards<deck> {
     }
 
     public String findCard(String card){
-        if (deck.contains(card)) {
+        if (deck.containsKey(card)) {
             return card;
+        } else {
+            return "NOPE!";
         }
-        else return "NOPE!";
     }
 
-    public boolean isDistinct() {
-        ArrayList<String> distinct = (ArrayList) deck.stream().distinct().collect(Collectors.toList());
-        return distinct.size() == deck.size();
+    public int cardNumericalValue(String v, String s) {
+        int value = (int)deck.get(v + s);
+        return value;
     }
-
 }

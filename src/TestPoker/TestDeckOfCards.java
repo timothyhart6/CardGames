@@ -21,16 +21,19 @@ public class TestDeckOfCards {
     }
 
     @Test
-    public void testDeckHasAllUniqueCards() {
+    public void cardHasNumericalValue() {
         DeckOfCards deck = new DeckOfCards();
-        Assert.assertTrue(deck.isDistinct());
+        Assert.assertEquals(11, deck.cardNumericalValue("J", "D"));
+        Assert.assertEquals(4, deck.cardNumericalValue("4", "H"));
+
     }
 
     @Test
-    public void testDeckHas4Suits(){
+    public void testMultipleCardsCanHaveNumericalValues () {
         DeckOfCards deck = new DeckOfCards();
-
-
+        Assert.assertEquals(11, deck.cardNumericalValue("J", "H"));
+        Assert.assertEquals(11, deck.cardNumericalValue("J", "C"));
+        Assert.assertNotEquals(8, deck.cardNumericalValue("9", "H"));
     }
 }
 
