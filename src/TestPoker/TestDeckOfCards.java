@@ -1,5 +1,6 @@
 package TestPoker;
 
+import Poker.Card;
 import Poker.DeckOfCards;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,31 +22,14 @@ public class TestDeckOfCards {
     }
 
     @Test
-    public void cardHasNumericalValue() {
+    public void testMultipleCardsCanHaveIdenticalNumericalValues () {
         DeckOfCards deck = new DeckOfCards();
-        Assert.assertEquals(11, deck.cardNumericalValue("J", "D"));
-        Assert.assertEquals(4, deck.cardNumericalValue("4", "H"));
-
-    }
-
-    @Test
-    public void testMultipleCardsCanHaveNumericalValues () {
-        DeckOfCards deck = new DeckOfCards();
-        Assert.assertEquals(11, deck.cardNumericalValue("J", "H"));
-        Assert.assertEquals(11, deck.cardNumericalValue("J", "C"));
-        Assert.assertNotEquals(8, deck.cardNumericalValue("9", "H"));
+        Card jackOfDiamonds = new Card("J", "D");
+        Card jackOfHearts = new Card("J", "H");
+        Assert.assertEquals(11, deck.getCardNumericalValue(jackOfDiamonds));
+        Assert.assertEquals(11, deck.getCardNumericalValue(jackOfHearts));
+        Assert.assertNotEquals(8, deck.getCardNumericalValue(jackOfHearts));
     }
 }
 
-//    @Test
-//    public void testCardHasASuit() {
-//        Card card = new Card("A","H");
-//        Assert.assertEquals("H", card.getSuit());
-//    }
-//
-//    @Test
-//    public void testCardHasAFaceValue() {
-//        Card card = new Card("A","H");
-//        Assert.assertEquals("A", card.getFaceValue());
-//    }
 

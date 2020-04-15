@@ -1,8 +1,9 @@
 package Poker;
 
+//import java.util.Hashtable;
 import java.util.Hashtable;
 
-public class  DeckOfCards<deck> {
+public class  DeckOfCards {
 
     private Hashtable deck = new Hashtable();
 
@@ -13,11 +14,10 @@ public class  DeckOfCards<deck> {
     private void createDeck() {
         String[] s = {"S", "C", "D", "H"};
         String[] v = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
-        int[] value = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
         for (int i = 0; i < 4; i++) {
             int c = 2;
             for (int j= 0; j < 13; j++) {
-                deck.put((v[j] + s[i]), c);
+                deck.put((new Card(v[j], s[i])), c);
                 c++;
             }
         }
@@ -28,15 +28,18 @@ public class  DeckOfCards<deck> {
     }
 
     public String findCard(String card){
-        if (deck.containsKey(card)) {
+        String[] cardArray = card.split("");
+        Card cardToObject = new Card(cardArray[0], cardArray[1]);
+        if (deck.containsKey(cardToObject)) {
             return card;
         } else {
             return "NOPE!";
         }
     }
 
-    public int cardNumericalValue(String v, String s) {
-        int value = (int)deck.get(v + s);
-        return value;
+    public int getCardNumericalValue(Card card) {
+        int cardValue = (int) deck.get(card);
+        return cardValue;
     }
+
 }

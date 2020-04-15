@@ -1,38 +1,23 @@
 package Poker;
 
+import java.util.Objects;
+
 public class Card {
     String faceValue;
     String suit;
-    int numericalValue;
-
 
     public Card(String faceValue, String suit) {
         this.faceValue = faceValue;
         this.suit = suit;
     }
 
-    public int getNumericalValue() {
-        return numericalValue;
+    public boolean equals(Object object) {
+        Card card = (Card) object;
+        return faceValue.equals(card.faceValue) && suit.equals(card.suit);
     }
 
-
-
-
-//    public String getFaceValue() {
-//        return faceValue;
-//    }
-//
-//    public void setFaceValue(String faceValue) {
-//        this.faceValue = faceValue;
-//    }
-//
-//    public String getSuit() {
-//        return suit;
-//    }
-
-//    public void setSuit(String suit) {
-//        this.suit = suit;
-//    }
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(faceValue, suit);
+    }
 }
