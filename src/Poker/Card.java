@@ -20,4 +20,12 @@ public class Card {
     public int hashCode() {
         return Objects.hash(faceValue, suit);
     }
+
+    public String getFaceValue() {
+        return faceValue;
+    }
+
+    public String getSuit() {
+        return suit;
+    }
 }

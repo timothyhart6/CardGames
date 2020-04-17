@@ -1,7 +1,6 @@
 package Poker;
 
-//import java.util.Hashtable;
-import java.util.Hashtable;
+import java.util.*;
 
 public class  DeckOfCards {
 
@@ -40,6 +39,30 @@ public class  DeckOfCards {
     public int getCardNumericalValue(Card card) {
         int cardValue = (int) deck.get(card);
         return cardValue;
+    }
+
+    public List getListOfDeckSuits() {
+        Set<Card> cards = deck.keySet();
+        List <String> suits = new ArrayList<>();
+        for (Card card : cards) {
+            if (!suits.contains(card.suit)) {
+                suits.add(card.suit);
+            }
+        }
+        Collections.sort(suits);
+        return suits;
+    }
+
+    public List getListOfDeckFaceValues() {
+        Set<Card> cards = deck.keySet();
+        List <String> faceValues = new ArrayList<>();
+        for (Card card : cards) {
+            if (!faceValues.contains(card.faceValue)) {
+                faceValues.add(card.faceValue);
+            }
+        }
+        Collections.sort(faceValues);
+        return faceValues;
     }
 
 }
