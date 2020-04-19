@@ -3,26 +3,26 @@ package Poker;
 import java.util.Objects;
 
 public class Card {
-    String faceValue;
+    String rank;
     String suit;
 
-    public Card(String faceValue, String suit) {
-        this.faceValue = faceValue;
+    public Card(String rank, String suit) {
+        this.rank = rank;
         this.suit = suit;
     }
 
     public boolean equals(Object object) {
         Card card = (Card) object;
-        return faceValue.equals(card.faceValue) && suit.equals(card.suit);
+        return rank.equals(card.rank) && suit.equals(card.suit);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(faceValue, suit);
+        return Objects.hash(rank, suit);
     }
 
-    public String getFaceValue() {
-        return faceValue;
+    public String getRank() {
+        return rank;
     }
 
     public String getSuit() {

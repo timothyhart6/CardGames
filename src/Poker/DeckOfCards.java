@@ -4,47 +4,46 @@ import java.util.*;
 
 public class  DeckOfCards {
 
-    private Hashtable deck = new Hashtable();
+    private ArrayList deck = new ArrayList();
 
-    public DeckOfCards(){
+    public DeckOfCards() {
         createDeck();
     }
 
     private void createDeck() {
-        String[] s = {"S", "C", "D", "H"};
-        String[] v = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
-        for (int i = 0; i < 4; i++) {
-            int c = 2;
-            for (int j= 0; j < 13; j++) {
-                deck.put((new Card(v[j], s[i])), c);
-                c++;
+        String[] rank = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+        String[] suit = {"S", "C", "D", "H"};
+        for (int s = 0; s < 4; s++) {
+            for (int r = 0; r < 13; r++) {
+                deck.add(new Card(rank[r], suit[s]));
             }
         }
     }
+
     public int count() {
         int deckCount = deck.size();
         return deckCount;
     }
 
-    public String findCard(String card){
+    public String findCard(String card) {
         String[] cardArray = card.split("");
         Card cardToObject = new Card(cardArray[0], cardArray[1]);
-        if (deck.containsKey(cardToObject)) {
+        if (deck.contains(cardToObject)) {
             return card;
         } else {
             return "NOPE!";
         }
     }
-
-    public int getCardNumericalValue(Card card) {
-        int cardValue = (int) deck.get(card);
-        return cardValue;
-    }
+// ###WILL BE MOVED TO GAME CLASS###
+//    public int getCardNumericalValue(Card card) {
+//        int cardValue = (int) deck.get(card);
+//        return cardValue;
+//    }
 
     public List getListOfDeckSuits() {
-        Set<Card> cards = deck.keySet();
-        List <String> suits = new ArrayList<>();
-        for (Card card : cards) {
+        List<String> suits = new ArrayList<>();
+        for (int i = 0; i < deck.size(); i++) {
+            Card card = (Card) deck.get(i);
             if (!suits.contains(card.suit)) {
                 suits.add(card.suit);
             }
@@ -53,16 +52,29 @@ public class  DeckOfCards {
         return suits;
     }
 
-    public List getListOfDeckFaceValues() {
-        Set<Card> cards = deck.keySet();
-        List <String> faceValues = new ArrayList<>();
-        for (Card card : cards) {
-            if (!faceValues.contains(card.faceValue)) {
-                faceValues.add(card.faceValue);
+    public List getListOfDeckRanks() {
+        List<String> ranks = new ArrayList<>();
+        for (int i = 0; i < deck.size(); i++) {
+            Card card = (Card) deck.get(i);
+            if (!ranks.contains(card.rank)) {
+                ranks.add(card.rank);
             }
         }
-        Collections.sort(faceValues);
-        return faceValues;
+        Collections.sort(ranks);
+        return ranks;
+    }
+
+    public String getListOfAllCardsInDeck() {
+        String[] listOfCards = new String[deck.size()];
+        for (int i = 0; i < deck.size(); i++) {
+            Card card = (Card) deck.get(i);
+            listOfCards[i] = card.rank + card.suit;
+        }
+        return Arrays.toString(listOfCards);
+    }
+
+    public void shuffle() {
+        Collections.shuffle(deck);
     }
 
 }
