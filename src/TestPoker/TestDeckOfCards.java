@@ -1,6 +1,7 @@
 package TestPoker;
 
 import Poker.DeckOfCards;
+import Poker.Card;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ import java.util.List;
 public class TestDeckOfCards {
 
     @Test
-    public void testDeckHas52Cards() {
+    public void testNewDeckHas52Cards() {
         DeckOfCards deck = new DeckOfCards();
         Assert.assertEquals(52, deck.count());
     }
@@ -60,6 +61,24 @@ public class TestDeckOfCards {
         DeckOfCards shuffledDeck = new DeckOfCards();
         shuffledDeck.shuffle();
         Assert.assertNotEquals(shuffledDeck.getListOfAllCardsInDeck(), deck.getListOfAllCardsInDeck());
+    }
+
+    @Test
+    public void testDealOneCard() {
+        DeckOfCards deck = new DeckOfCards();
+           Card dealtCard = deck.dealOneCard();
+            Assert.assertEquals(51, deck.count());
+            Assert.assertEquals(new Card("A", "H"), dealtCard);
+        }
+
+
+    @Test
+    public void testDiscardASpecificCardFromTheDeck() {
+        DeckOfCards deck = new DeckOfCards();
+        deck.discard("8S");
+        Assert.assertEquals(51, deck.count());
+        Assert.assertEquals("8S is not in the deck.", deck.findCard("8S"));
+        Assert.assertEquals("9S", deck.findCard("9S"));
     }
 
 }

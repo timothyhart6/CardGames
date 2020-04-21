@@ -31,7 +31,7 @@ public class  DeckOfCards {
         if (deck.contains(cardToObject)) {
             return card;
         } else {
-            return "NOPE!";
+            return cardToObject.rank + cardToObject.suit + " is not in the deck.";
         }
     }
 // ###WILL BE MOVED TO GAME CLASS###
@@ -77,4 +77,14 @@ public class  DeckOfCards {
         Collections.shuffle(deck);
     }
 
+    public Card dealOneCard() {
+        Card dealtCard = (Card) deck.remove(deck.size() - 1);
+        return dealtCard;
+    }
+
+    public void discard(String card) {
+        String[] cardArray = card.split("");
+        Card discardedCard = new Card(cardArray[0], cardArray[1]);
+        deck.remove(discardedCard);
+    }
 }
