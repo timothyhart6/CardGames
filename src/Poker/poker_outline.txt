@@ -1,0 +1,50 @@
+
+Game Flow per round:
+
+* Set up:
+    * Pot is set to 0
+    * Count players at table
+    * blinds are applied
+    * Dealer chip is on the button
+    * Shuffle Deck
+* Round 1:
+    * Deal hole cards to players
+    * get 1st round bets
+    * Add bets to pot
+* Round 2: (if more than 1 player remains)
+    * burn card
+    * deal flop
+    * get 2nd round bets
+    * Add bets to pot
+* Round 3: (if more than 1 player remains)
+    * burn one card
+    * deal turn
+    * get 3rd round bets
+    * Add bets to pot
+* Round 4: (if more than 1 player remains)
+    * burn one card
+    * deal turn
+    * get 3rd round bets
+    * Add bets to pot
+    * Pot goes to winner(s)
+* Break down:
+    * Move dealer chip
+
+Poker Instance Variables:
+player count (table) (get, set?)
+player count (hand) (get)
+Small Blind (get? set? down the road i can change the stakes)
+Big Blind
+Player with Button (get, set)
+Pot (get, set)
+
+
+METHODS:
+IsPotEmpty?
+NumberOfPlayerInHand
+
+dealHoleCards
+dealFlop
+dealTurn
+dealRiver
+burnCard

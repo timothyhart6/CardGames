@@ -9,7 +9,7 @@ import org.junit.Test;
 public class testPlayer {
 
     @Test
-    public void testPLayerName() {
+    public void testPlayerName() {
         Player bob = new Player("Bob", 200);
         Assert.assertEquals("Bob", bob.getName());
     }
@@ -22,13 +22,14 @@ public class testPlayer {
 
     @Test
     public void testPlayerHand() {
-        DeckOfCards deck = new DeckOfCards();
-        DeckOfCards newDeck = new DeckOfCards();
         Player tommy = new Player("Tommy", 200);
+        DeckOfCards deck = new DeckOfCards();
+        DeckOfCards identicalDeckToBeDealt = new DeckOfCards();
         Card[] dealtHand= {deck.dealOneCard(), deck.dealOneCard()};
-        Card cardOne = newDeck.dealOneCard();
-        Card cardTwo = newDeck.dealOneCard();
-        tommy.setHand(Card[] = {cardOne, cardTwo});
+        Card cardOne = identicalDeckToBeDealt.dealOneCard();
+        Card cardTwo = identicalDeckToBeDealt.dealOneCard();
+        Card[] hand = {cardOne, cardTwo};
+        tommy.setHand(hand);
         Assert.assertEquals(dealtHand, tommy.getHand());
     }
 }
