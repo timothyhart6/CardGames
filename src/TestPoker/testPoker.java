@@ -2,6 +2,7 @@ package TestPoker;
 
 import Poker.Poker;
 import Poker.Player;
+import Poker.Card;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,6 +21,8 @@ public class testPoker {
         int numberOfPlayers = 1;
         Poker poker = new Poker(humanPlayer, numberOfPlayers);
         poker.dealHoleCards();
+        Card[] expectedHand = {new Card("A", "H"), new Card("K", "H")};
+        Assert.assertEquals(expectedHand, humanPlayer.getHand());
         Assert.assertEquals(50, poker.deck.count());
 
     }
