@@ -82,9 +82,13 @@ public class  DeckOfCards {
         return dealtCard;
     }
 
-    public void discard(String card) {
+    public void discardASpecificCard(String card) {
         String[] cardArray = card.split("");
         Card discardedCard = new Card(cardArray[0], cardArray[1]);
         deck.remove(discardedCard);
+    }
+
+    public void discardTopCard() {
+        deck.remove(deck.size() - 1);
     }
 }

@@ -75,10 +75,18 @@ public class TestDeckOfCards {
     @Test
     public void testDiscardASpecificCardFromTheDeck() {
         DeckOfCards deck = new DeckOfCards();
-        deck.discard("8S");
+        deck.discardASpecificCard("8S");
         Assert.assertEquals(51, deck.count());
         Assert.assertEquals("8S is not in the deck.", deck.findCard("8S"));
         Assert.assertEquals("9S", deck.findCard("9S"));
+    }
+
+    @Test
+    public void testDiscardTopCard() {
+        DeckOfCards deck = new DeckOfCards();
+        deck.discardTopCard();
+        Assert.assertEquals(51, deck.count());
+        Assert.assertEquals("AH is not in the deck.", deck.findCard("AH"));
     }
 
 }

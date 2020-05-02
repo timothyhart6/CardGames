@@ -16,9 +16,7 @@ public  class Poker {
 
 
     public void dealHoleCards() {
-        Card card1 = deck.dealOneCard();
-        Card card2 = deck.dealOneCard();
-        Card[] holeCards = {card1, card2};
+        Card[] holeCards = {deck.dealOneCard(), deck.dealOneCard()};
         humanPlayer.setHand(holeCards);
     }
 
