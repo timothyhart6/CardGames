@@ -5,16 +5,13 @@ public  class Poker {
     Player humanPlayer;;
     public DeckOfCards deck = new DeckOfCards();
     Card[] flop;
+    Card turn;
+    Card river;
 
     public Poker(Player player, int numberOfPlayers) {
         this.humanPlayer = player;
         this.numberOfPlayers = numberOfPlayers;
     }
-
-    public void testMethod() {
-        System.out.println("test method");
-    }
-
 
     public void dealHoleCards() {
         Card[] holeCards = {deck.dealTopCard(), deck.dealTopCard()};
@@ -30,6 +27,16 @@ public  class Poker {
         flop = flopCards;
     }
 
+    public void dealTurn() {
+        Card turnCard = deck.dealTopCard();
+        turn = turnCard;
+    }
+
+    public void dealRiver() {
+        Card riverCard = deck.dealTopCard();
+        river = riverCard;
+    }
+
 
     public int getNumberOfPlayers() {
         return numberOfPlayers;
@@ -43,4 +50,11 @@ public  class Poker {
         return flop;
     }
 
+    public Card getTurn() {
+        return turn;
+    }
+
+    public Card getRiver() {
+        return river;
+    }
 }

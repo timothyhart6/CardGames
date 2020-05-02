@@ -36,10 +36,26 @@ public class testPoker {
     public void  testDealFlop() {
         Poker poker = new Poker(new Player("Timothy", 200), 1);
         poker.dealFlop();
-        Card[] expectedFlop = {new Card("A", "H"), new Card("K", "H"), new Card("Q", "H")};
+        Card[] expectedFlopCards = {new Card("A", "H"), new Card("K", "H"), new Card("Q", "H")};
         Assert.assertEquals(49, poker.deck.count());
-        Assert.assertEquals(expectedFlop, poker.getFlop());
+        Assert.assertEquals(expectedFlopCards, poker.getFlop());
+    }
 
+    @Test
+    public void testDealTurn() {
+        Poker poker = new Poker(new Player("Timothy", 200), 1);
+        poker.dealTurn();
+        Card expectedTurnCard = new Card("A", "H");
+        Assert.assertEquals(51, poker.deck.count());
+        Assert.assertEquals(expectedTurnCard, poker.getTurn());
+    }
 
+    @Test
+    public void testDealRiver() {
+        Poker poker = new Poker(new Player("Timothy", 200), 1);
+        poker.dealRiver();
+        Card expectedRiverCard = new Card("A", "H");
+        Assert.assertEquals(51, poker.deck.count());
+        Assert.assertEquals(expectedRiverCard, poker.getRiver());
     }
 }
