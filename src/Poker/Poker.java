@@ -4,6 +4,7 @@ public  class Poker {
     int numberOfPlayers;
     Player humanPlayer;;
     public DeckOfCards deck = new DeckOfCards();
+    Card[] flop;
 
     public Poker(Player player, int numberOfPlayers) {
         this.humanPlayer = player;
@@ -16,8 +17,17 @@ public  class Poker {
 
 
     public void dealHoleCards() {
-        Card[] holeCards = {deck.dealOneCard(), deck.dealOneCard()};
+        Card[] holeCards = {deck.dealTopCard(), deck.dealTopCard()};
         humanPlayer.setHand(holeCards);
+    }
+
+    public void burnCard() {
+        deck.discardTopCard();
+    }
+
+    public void dealFlop() {
+        Card[] flopCards = {deck.dealTopCard(), deck.dealTopCard(), deck.dealTopCard()};
+        flop = flopCards;
     }
 
 
@@ -28,4 +38,9 @@ public  class Poker {
     public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
     }
+
+    public Card[] getFlop() {
+        return flop;
+    }
+
 }

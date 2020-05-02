@@ -77,7 +77,7 @@ public class  DeckOfCards {
         Collections.shuffle(deck);
     }
 
-    public Card dealOneCard() {
+    public Card dealTopCard() {
         Card dealtCard = (Card) deck.remove(deck.size() - 1);
         return dealtCard;
     }

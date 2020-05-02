@@ -25,10 +25,8 @@ public class testPlayer {
         Player tommy = new Player("Tommy", 200);
         DeckOfCards deck = new DeckOfCards();
         DeckOfCards identicalDeckToBeDealt = new DeckOfCards();
-        Card[] dealtHand= {deck.dealOneCard(), deck.dealOneCard()};
-        Card cardOne = identicalDeckToBeDealt.dealOneCard();
-        Card cardTwo = identicalDeckToBeDealt.dealOneCard();
-        Card[] hand = {cardOne, cardTwo};
+        Card[] dealtHand= {deck.dealTopCard(), deck.dealTopCard()};
+        Card[] hand = {identicalDeckToBeDealt.dealTopCard(), identicalDeckToBeDealt.dealTopCard()};
         tommy.setHand(hand);
         Assert.assertEquals(dealtHand, tommy.getHand());
     }

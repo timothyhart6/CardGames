@@ -18,12 +18,28 @@ public class testPoker {
     @Test
     public void testDealHoleCards() {
         Player humanPlayer = new Player("Timothy", 200);
-        int numberOfPlayers = 1;
-        Poker poker = new Poker(humanPlayer, numberOfPlayers);
+        Poker poker = new Poker(humanPlayer, 1);
         poker.dealHoleCards();
         Card[] expectedHand = {new Card("A", "H"), new Card("K", "H")};
         Assert.assertEquals(expectedHand, humanPlayer.getHand());
         Assert.assertEquals(50, poker.deck.count());
+    }
+
+    @Test
+    public void testBurnCard() {
+        Poker poker = new Poker(new Player("Timothy", 200), 1);
+        poker.burnCard();
+        Assert.assertEquals(51, poker.deck.count());
+    }
+
+    @Test
+    public void  testDealFlop() {
+        Poker poker = new Poker(new Player("Timothy", 200), 1);
+        poker.dealFlop();
+        Card[] expectedFlop = {new Card("A", "H"), new Card("K", "H"), new Card("Q", "H")};
+        Assert.assertEquals(49, poker.deck.count());
+        Assert.assertEquals(expectedFlop, poker.getFlop());
+
 
     }
 }

@@ -66,7 +66,7 @@ public class TestDeckOfCards {
     @Test
     public void testDealOneCard() {
         DeckOfCards deck = new DeckOfCards();
-           Card dealtCard = deck.dealOneCard();
+           Card dealtCard = deck.dealTopCard();
             Assert.assertEquals(51, deck.count());
             Assert.assertEquals(new Card("A", "H"), dealtCard);
         }
