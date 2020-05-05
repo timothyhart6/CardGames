@@ -1,17 +1,35 @@
 package Poker;
 
+import java.util.ArrayList;
+
 public class Player {
 
     String name;
     int chipCount;
-    Card[] hand;
+//    Card[] hand;
+    ArrayList hand = new ArrayList<Card>();
+    int bet;
 
     public Player(String name, int chipCount){
          this.name = name;
          this.chipCount = chipCount;
-
     }
 
+    public void check() {
+    }
+    
+    public void bet(int bet) {
+        chipCount -= bet;
+    }
+
+    public void raise(int raise) {
+        bet += raise;
+        chipCount -= raise;
+    }
+
+    public void fold() {
+        hand.clear();
+    }
 
     public String getName() {
         return name;
@@ -21,11 +39,13 @@ public class Player {
         return chipCount;
     }
 
-    public void setHand(Card[] hand) {
+    public void setHand(ArrayList<Card> hand) {
         this.hand = hand;
     }
 
-    public Card[] getHand() {
+    public ArrayList<Card> getHand() {
         return hand;
     }
+
+
 }

@@ -1,5 +1,7 @@
 package Poker;
 
+import java.util.ArrayList;
+
 public  class Poker {
     int numberOfPlayers;
     Player humanPlayer;;
@@ -14,7 +16,9 @@ public  class Poker {
     }
 
     public void dealHoleCards() {
-        Card[] holeCards = {deck.dealTopCard(), deck.dealTopCard()};
+        ArrayList holeCards= new ArrayList<Card>();
+        holeCards.add(deck.dealTopCard());
+        holeCards.add(deck.dealTopCard());
         humanPlayer.setHand(holeCards);
     }
 
