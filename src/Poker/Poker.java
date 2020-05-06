@@ -9,6 +9,8 @@ public  class Poker {
     Card[] flop;
     Card turn;
     Card river;
+    int pot;
+    int currentBet = 2;
 
     public Poker(Player player, int numberOfPlayers) {
         this.humanPlayer = player;

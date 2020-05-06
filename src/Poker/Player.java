@@ -7,12 +7,22 @@ public class Player {
     String name;
     int chipCount;
 //    Card[] hand;
-    ArrayList hand = new ArrayList<Card>();
+    ArrayList <Card> hand = new ArrayList<Card>();
     int bet;
 
     public Player(String name, int chipCount){
          this.name = name;
          this.chipCount = chipCount;
+    }
+
+    public void playerAction(int action) {
+        switch (action) {
+            case 1:
+                fold();
+                break;
+            case 2:
+                check();
+        }
     }
 
     public void check() {
@@ -29,6 +39,8 @@ public class Player {
 
     public void fold() {
         hand.clear();
+//        hand.remove(0);
+//        hand.remove(0);
     }
 
     public String getName() {
@@ -43,7 +55,16 @@ public class Player {
         this.hand = hand;
     }
 
-    public ArrayList<Card> getHand() {
+    public ArrayList getHandAsString() {
+        ArrayList stringHand = new ArrayList();
+        if (hand.size() == 2) {
+            stringHand.add(hand.get(0).rank + hand.get(0).suit);
+            stringHand.add(hand.get(1).rank + hand.get(1).suit);
+        }
+        return stringHand;
+    }
+
+    public ArrayList getHand() {
         return hand;
     }
 

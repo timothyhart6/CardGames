@@ -42,7 +42,7 @@ public class testPlayer {
     }
 
     @Test
-    public void check() {
+    public void testCheck() {
         Player tommy = new Player("Tommy", 200);
         Poker poker = new Poker(tommy, 1);
         poker.dealHoleCards();
@@ -57,7 +57,7 @@ public class testPlayer {
     }
 
     @Test
-    public void placeBet() {
+    public void testPlaceBet() {
         Player tommy = new Player("Tommy", 200);
         Poker poker = new Poker(tommy, 1);
         poker.dealHoleCards();
@@ -72,7 +72,7 @@ public class testPlayer {
     }
 
     @Test
-    public void raise() {
+    public void testRaise() {
         Player tommy = new Player("Tommy", 200);
         Poker poker = new Poker(tommy, 1);
 
@@ -88,19 +88,20 @@ public class testPlayer {
     }
 
     @Test
-    public void fold() {
+    public void testFold() {
         Player tommy = new Player("Tommy", 200);
         Poker poker = new Poker(tommy, 1);
-
-        ArrayList expectedHand = new ArrayList<Card>();
-        expectedHand.add(new Card("A", "H"));
-        expectedHand.add(new Card("K", "H"));
-
+        ArrayList emptyHand = new ArrayList<Card>();
         poker.dealHoleCards();
         tommy.bet(10);
         tommy.fold();
         Assert.assertEquals(190, tommy.getChipCount());
-        Assert.assertNotEquals(expectedHand, tommy.getHand());
+        Assert.assertEquals(emptyHand, tommy.getHand());
+    }
+
+    @Test
+    public void testGetHandAsString() {
+        Assert.assertEquals(1, 0);
     }
 
 
