@@ -15,15 +15,15 @@ public class Player {
          this.chipCount = chipCount;
     }
 
-    public void playerAction(int action) {
-        switch (action) {
-            case 1:
-                fold();
-                break;
-            case 2:
-                check();
-        }
-    }
+//    public void playerAction(int action) {
+//        switch (action) {
+//            case 1:
+//                fold();
+//                break;
+//            case 2:
+//                check();
+//        }
+//    }
 
     public void check() {
     }

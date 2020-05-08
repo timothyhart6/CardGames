@@ -101,7 +101,13 @@ public class testPlayer {
 
     @Test
     public void testGetHandAsString() {
-        Assert.assertEquals(1, 0);
+        Player tommy = new Player("Tommy", 200);
+        Poker poker = new Poker(tommy, 1);
+        poker.dealHoleCards();
+        Assert.assertTrue(tommy.getHandAsString().contains("AH"));
+        Assert.assertTrue(tommy.getHandAsString().contains("KH"));
+        Assert.assertEquals(2, tommy.getHandAsString().size());
+
     }
 
 

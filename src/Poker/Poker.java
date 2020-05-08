@@ -11,10 +11,15 @@ public  class Poker {
     Card river;
     int pot;
     int currentBet = 2;
+    private int checkCounter;
 
     public Poker(Player player, int numberOfPlayers) {
         this.humanPlayer = player;
         this.numberOfPlayers = numberOfPlayers;
+    }
+
+    public void incrementCheckCounter() {
+        checkCounter += 1;
     }
 
     public void dealHoleCards() {
@@ -43,6 +48,25 @@ public  class Poker {
         river = riverCard;
     }
 
+    public ArrayList getFlopAsString() {
+        ArrayList stringFlop = new ArrayList();
+
+        stringFlop.add(flop[0].rank + flop[0].suit);
+        stringFlop.add(flop[1].rank + flop[1].suit);
+        stringFlop.add(flop[2].rank + flop[2].suit);
+
+        return stringFlop;
+    }
+
+    public String getTurnAsString() {
+        String stringTurn = turn.rank + turn.suit;
+        return stringTurn;
+    }
+
+    public String getRiverAsString() {
+        String stringRiver = river.rank + river.suit;
+        return stringRiver;
+    }
 
     public int getNumberOfPlayers() {
         return numberOfPlayers;
@@ -50,6 +74,14 @@ public  class Poker {
 
     public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
+    }
+
+    public int getCheckCounter() {
+        return checkCounter;
+    }
+
+    public void setCheckCounter(int checkCounter) {
+        this.checkCounter = checkCounter;
     }
 
     public Card[] getFlop() {
@@ -63,4 +95,6 @@ public  class Poker {
     public Card getRiver() {
         return river;
     }
+
+
 }
