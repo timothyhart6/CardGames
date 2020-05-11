@@ -10,7 +10,7 @@ public  class Poker {
     Card turn;
     Card river;
     int pot;
-    int currentBet = 2;
+    private int tableBet;
     private int checkCounter;
 
     public Poker(Player player, int numberOfPlayers) {
@@ -20,6 +20,12 @@ public  class Poker {
 
     public void incrementCheckCounter() {
         checkCounter += 1;
+    }
+
+    public void playerAction(int betAmount) {
+        if (tableBet < betAmount) {
+            setTableBet(betAmount);
+        }
     }
 
     public void dealHoleCards() {
@@ -76,6 +82,14 @@ public  class Poker {
         this.numberOfPlayers = numberOfPlayers;
     }
 
+    public int getTableBet() {
+        return tableBet;
+    }
+
+    public void setTableBet(int tableBet) {
+        this.tableBet = tableBet;
+    }
+
     public int getCheckCounter() {
         return checkCounter;
     }
@@ -95,6 +109,4 @@ public  class Poker {
     public Card getRiver() {
         return river;
     }
-
-
 }

@@ -7,7 +7,6 @@ public class PlayPoker {
 
     public static void main(String[] args) {
 
-
         Scanner reader = new Scanner(System.in);
 
         //Get player (name, chip count), number of opponents, and create a new game of poker
@@ -36,6 +35,7 @@ public class PlayPoker {
 
         if (action == 1) {
             player.check();
+            poker.setTableBet(player.playerBet);
             poker.incrementCheckCounter();
         }
 

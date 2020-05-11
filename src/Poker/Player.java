@@ -6,41 +6,41 @@ public class Player {
 
     String name;
     int chipCount;
-//    Card[] hand;
     ArrayList <Card> hand = new ArrayList<Card>();
-    int bet;
+    int playerBet;
 
     public Player(String name, int chipCount){
          this.name = name;
          this.chipCount = chipCount;
     }
 
-//    public void playerAction(int action) {
-//        switch (action) {
-//            case 1:
-//                fold();
-//                break;
-//            case 2:
-//                check();
-//        }
-//    }
+    public int check() {
+        return playerBet;
+    }
 
-    public void check() {
+    public int fold() {
+        hand.clear();
+        playerBet = 0;
+        return playerBet;
+    }
+
+    public int call(int currentBet) {
+        chipCount -= currentBet;
+        playerBet = currentBet;
+        return playerBet;
     }
     
-    public void bet(int bet) {
+    public int bet(int bet) {
         chipCount -= bet;
+        playerBet = bet;
+        return playerBet;
     }
 
-    public void raise(int raise) {
-        bet += raise;
-        chipCount -= raise;
-    }
-
-    public void fold() {
-        hand.clear();
-//        hand.remove(0);
-//        hand.remove(0);
+    public int raise(int tableBet, int raise) {
+        int betDifference = tableBet - playerBet;
+        chipCount -= betDifference + raise;
+        playerBet = tableBet + raise;
+        return playerBet;
     }
 
     public String getName() {
@@ -69,4 +69,7 @@ public class Player {
     }
 
 
+    public int getPlayerBet() {
+        return playerBet;
+    }
 }

@@ -47,56 +47,71 @@ public class testPlayer {
         Poker poker = new Poker(tommy, 1);
         poker.dealHoleCards();
 
-        ArrayList expectedHand = new ArrayList<Card>();
-        expectedHand.add(new Card("A", "H"));
-        expectedHand.add(new Card("K", "H"));
-
         tommy.check();
+
+        Assert.assertEquals(0, tommy.getPlayerBet());
         Assert.assertEquals(200, tommy.getChipCount());
-        Assert.assertEquals(expectedHand, tommy.getHand());
-    }
-
-    @Test
-    public void testPlaceBet() {
-        Player tommy = new Player("Tommy", 200);
-        Poker poker = new Poker(tommy, 1);
-        poker.dealHoleCards();
-
-        ArrayList expectedHand = new ArrayList<Card>();
-        expectedHand.add(new Card("A", "H"));
-        expectedHand.add(new Card("K", "H"));
-
-        tommy.bet(10);
-        Assert.assertEquals(190, tommy.getChipCount());
-        Assert.assertEquals(expectedHand, tommy.getHand());
-    }
-
-    @Test
-    public void testRaise() {
-        Player tommy = new Player("Tommy", 200);
-        Poker poker = new Poker(tommy, 1);
-
-        ArrayList expectedHand = new ArrayList<Card>();
-        expectedHand.add(new Card("A", "H"));
-        expectedHand.add(new Card("K", "H"));
-
-        poker.dealHoleCards();
-        tommy.bet(10);
-        tommy.raise(100);
-        Assert.assertEquals(90, tommy.getChipCount());
-        Assert.assertEquals(expectedHand, tommy.getHand());
+        Assert.assertEquals(2, tommy.getHand().size());
     }
 
     @Test
     public void testFold() {
         Player tommy = new Player("Tommy", 200);
         Poker poker = new Poker(tommy, 1);
-        ArrayList emptyHand = new ArrayList<Card>();
         poker.dealHoleCards();
-        tommy.bet(10);
+        poker.playerAction(tommy.bet(10));
+
         tommy.fold();
+
+        Assert.assertEquals(0, tommy.getPlayerBet());
         Assert.assertEquals(190, tommy.getChipCount());
-        Assert.assertEquals(emptyHand, tommy.getHand());
+        Assert.assertEquals(0, tommy.getHand().size());
+
+    }
+
+    @Test
+    public void testCall() {
+        Player tommy = new Player("Tommy", 200);
+        Player bettor = new Player("Betting Player", 200);
+        Poker poker = new Poker(tommy, 1);
+        poker.dealHoleCards();
+        poker.setTableBet(2);
+
+        tommy.call(poker.getTableBet());
+
+        Assert.assertEquals(2, tommy.getPlayerBet());
+        Assert.assertEquals(198, tommy.getChipCount());
+        Assert.assertEquals(2, tommy.getHand().size());
+    }
+
+    @Test
+    public void testBet() {
+        Player tommy = new Player("Tommy", 200);
+        Poker poker = new Poker(tommy, 1);
+        poker.dealHoleCards();
+
+        tommy.bet(10);
+
+        Assert.assertEquals(10, tommy.getPlayerBet());
+        Assert.assertEquals(190, tommy.getChipCount());
+        Assert.assertEquals(2, tommy.getHand().size());
+    }
+
+    @Test
+    public void testRaise() {
+        Player tommy = new Player("Tommy", 200);
+        Player bettingPlayer = new Player("Bettor", 200);
+
+        Poker poker = new Poker(tommy, 1);
+        poker.dealHoleCards();
+        poker.playerAction(tommy.bet(10));
+
+        tommy.raise(poker.getTableBet(), 100);
+
+        Assert.assertEquals(110, tommy.getPlayerBet());
+//        Test chip count for raise and reraise (before raise, player bet is 0, player bet is > 0)
+        Assert.assertEquals(0, tommy.getChipCount());
+        Assert.assertEquals(2, tommy.getHand().size());
     }
 
     @Test
@@ -107,8 +122,5 @@ public class testPlayer {
         Assert.assertTrue(tommy.getHandAsString().contains("AH"));
         Assert.assertTrue(tommy.getHandAsString().contains("KH"));
         Assert.assertEquals(2, tommy.getHandAsString().size());
-
     }
-
-
 }

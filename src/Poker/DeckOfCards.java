@@ -34,11 +34,6 @@ public class  DeckOfCards {
             return cardToObject.rank + cardToObject.suit + " is not in the deck.";
         }
     }
-// ###WILL BE MOVED TO GAME CLASS###
-//    public int getCardNumericalValue(Card card) {
-//        int cardValue = (int) deck.get(card);
-//        return cardValue;
-//    }
 
     public List getListOfDeckSuits() {
         List<String> suits = new ArrayList<>();

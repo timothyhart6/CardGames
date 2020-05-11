@@ -10,13 +10,36 @@ import java.util.ArrayList;
 
 public class testPoker {
 
-//    @Test
-//    public void testNumberOfPlayers() {
-//        Poker poker = new Poker();
-//        poker.setNumberOfPlayers(1);
-//        Assert.assertEquals(1, poker.getNumberOfPlayers());
-//    }
+    @Test
+    public void testPlayerAction() {
+        Player checkingPlayer = new Player("Check", 200);
+        Player foldingPlayer = new Player("Fold", 200);
+        Player callingPlayer = new Player("calling", 200);
+        Player bettingPlayer = new Player("Bet", 200);
+        Player raisingPlayer = new Player("Raise", 200);
+        Poker poker = new Poker(checkingPlayer, 5);
+        poker.dealHoleCards();
 
+        poker.playerAction(checkingPlayer.check());
+        Assert.assertEquals(0, checkingPlayer.getPlayerBet());
+        Assert.assertEquals(0, poker.getTableBet());
+
+        poker.playerAction(bettingPlayer.bet(5));
+        Assert.assertEquals(5, bettingPlayer.getPlayerBet());
+        Assert.assertEquals(5, poker.getTableBet());
+
+        poker.playerAction(raisingPlayer.raise(poker.getTableBet(), 15));
+        Assert.assertEquals(20, raisingPlayer.getPlayerBet());
+        Assert.assertEquals(20, poker.getTableBet());
+
+        poker.playerAction(foldingPlayer.fold());
+        Assert.assertEquals(0, foldingPlayer.getPlayerBet());
+        Assert.assertEquals(20, poker.getTableBet());
+
+        poker.playerAction(callingPlayer.call(poker.getTableBet()));
+        Assert.assertEquals(20, callingPlayer.getPlayerBet());
+        Assert.assertEquals(20, poker.getTableBet());
+    }
     @Test
     public void testDealHoleCards() {
         Player humanPlayer = new Player("Timothy", 200);
@@ -56,7 +79,6 @@ public class testPoker {
         Assert.assertEquals(expectedFlop, poker.getFlopAsString());
         Assert.assertEquals(49, poker.deck.count());
     }
-
 
     @Test
     public void testDealTurn() {
@@ -100,6 +122,4 @@ public class testPoker {
         poker.incrementCheckCounter();
         Assert.assertEquals(1, poker.getCheckCounter());
     }
-
-
 }
