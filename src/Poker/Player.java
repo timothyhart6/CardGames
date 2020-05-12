@@ -51,8 +51,8 @@ public class Player {
         return chipCount;
     }
 
-    public void setHand(ArrayList<Card> hand) {
-        this.hand = hand;
+    public void setHand(Card card) {
+        this.hand.add(card);
     }
 
     public ArrayList getHandAsString() {

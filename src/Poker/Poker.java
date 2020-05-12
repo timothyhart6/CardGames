@@ -3,9 +3,10 @@ package Poker;
 import java.util.ArrayList;
 
 public  class Poker {
-    int numberOfPlayers;
-    Player humanPlayer;;
-    public DeckOfCards deck = new DeckOfCards();
+//    int numberOfPlayers;
+    Player humanPlayer;
+    public DeckOfCards deck= new DeckOfCards();
+    ArrayList<Player> pokerPlayers;
     Card[] flop;
     Card turn;
     Card river;
@@ -13,9 +14,8 @@ public  class Poker {
     private int tableBet;
     private int checkCounter;
 
-    public Poker(Player player, int numberOfPlayers) {
-        this.humanPlayer = player;
-        this.numberOfPlayers = numberOfPlayers;
+    public Poker(ArrayList<Player> pokerPlayers) {
+        this.pokerPlayers = pokerPlayers;
     }
 
     public void incrementCheckCounter() {
@@ -30,9 +30,19 @@ public  class Poker {
 
     public void dealHoleCards() {
         ArrayList holeCards= new ArrayList<Card>();
-        holeCards.add(deck.dealTopCard());
-        holeCards.add(deck.dealTopCard());
-        humanPlayer.setHand(holeCards);
+        int p = 0;
+        int c = 0;
+        while (c < 2) {
+            pokerPlayers.get(p).setHand(deck.dealTopCard());
+            p ++;
+            if (p == pokerPlayers.size()) {
+                c++;
+                p = 0;
+            }
+        }
+//        holeCards.add(deck.dealTopCard());
+//        holeCards.add(deck.dealTopCard());
+//        humanPlayer.setHand(holeCards);
     }
 
     public void burnCard() {
@@ -72,14 +82,6 @@ public  class Poker {
     public String getRiverAsString() {
         String stringRiver = river.rank + river.suit;
         return stringRiver;
-    }
-
-    public int getNumberOfPlayers() {
-        return numberOfPlayers;
-    }
-
-    public void setNumberOfPlayers(int numberOfPlayers) {
-        this.numberOfPlayers = numberOfPlayers;
     }
 
     public int getTableBet() {
