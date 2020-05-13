@@ -30,7 +30,7 @@ Game Flow per round:
 * Break down:
     * Move dealer chip
 
-Poker Instance Variables:
+CardGames.Poker Instance Variables:
 player count (table) (get, set?)
 player count (hand) (get)
 Small Blind (get? set? down the road i can change the stakes)

@@ -1,4 +1,6 @@
-package Poker;
+package CardGames.Poker;
+
+import CardGames.Card;
 
 import java.util.ArrayList;
 
@@ -58,8 +60,8 @@ public class Player {
     public ArrayList getHandAsString() {
         ArrayList stringHand = new ArrayList();
         if (hand.size() == 2) {
-            stringHand.add(hand.get(0).rank + hand.get(0).suit);
-            stringHand.add(hand.get(1).rank + hand.get(1).suit);
+            stringHand.add(hand.get(0).getRank() + hand.get(0).getSuit());
+            stringHand.add(hand.get(1).getRank() + hand.get(1).getSuit());
         }
         return stringHand;
     }

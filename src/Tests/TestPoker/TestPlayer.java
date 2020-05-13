@@ -1,15 +1,15 @@
-package TestPoker;
+package Tests.TestPoker;
 
-import Poker.Card;
-import Poker.DeckOfCards;
-import Poker.Player;
-import Poker.Poker;
+import CardGames.Card;
+import CardGames.DeckOfCards;
+import CardGames.Poker.Player;
+import CardGames.Poker.Poker;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class testPlayer {
+public class TestPlayer {
 
     @Test
     public void testPlayerName() {

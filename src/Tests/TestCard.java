@@ -1,11 +1,11 @@
-package TestPoker;
+package Tests;
 
-import Poker.Card;
-import Poker.DeckOfCards;
+import CardGames.Card;
+import CardGames.DeckOfCards;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class testCard {
+public class TestCard {
 //    @Test
 //    public void testCardHasNumericalValue () {
 //        DeckOfCards deck = new DeckOfCards();

@@ -1,4 +1,7 @@
-package Poker;
+package CardGames.Poker;
+
+import CardGames.Card;
+import CardGames.DeckOfCards;
 
 import java.util.ArrayList;
 
@@ -62,7 +65,7 @@ public  class Poker {
     public ArrayList<String> displayCommunityCards() {
         ArrayList<String> communityCardsAsStrings = new ArrayList<String>();
         for (int i = 0; i < communityCards.size(); i++) {
-            communityCardsAsStrings.add(communityCards.get(i).rank + communityCards.get(i).suit);
+            communityCardsAsStrings.add(communityCards.get(i).getRank() + communityCards.get(i).getSuit());
         }
         return communityCardsAsStrings;
     }

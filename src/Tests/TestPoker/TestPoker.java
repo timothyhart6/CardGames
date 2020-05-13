@@ -1,14 +1,14 @@
-package TestPoker;
+package Tests.TestPoker;
 
-import Poker.Card;
-import Poker.Player;
-import Poker.Poker;
+import CardGames.Card;
+import CardGames.Poker.Player;
+import CardGames.Poker.Poker;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class testPoker {
+public class TestPoker {
 
     @Test
     public void testPlayerAction() {

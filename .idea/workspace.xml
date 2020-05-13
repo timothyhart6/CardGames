@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dac0b4e3-b99e-47bf-a40d-0472c6b6390c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Poker/TestPoker/testPoker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Poker/TestPoker/testPoker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Poker/Poker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Poker/Poker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestPoker/testPoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestPoker/testPoker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CardGames.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Poker/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardGames/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Poker/DeckOfCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardGames/DeckOfCards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Poker/PlayPoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardGames/Poker/PlayPoker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Poker/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardGames/Poker/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Poker/Poker.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardGames/Poker/Poker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Poker/Poker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardGames/Poker/Poker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Poker/poker_outline.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardGames/Poker/poker_outline.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestPoker/TestDeckOfCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/TestDeckOfCards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestPoker/TestPlayPoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/TestPoker/TestPlayPoker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestPoker/testCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/TestCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestPoker/testPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/TestPoker/TestPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestPoker/testPoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/TestPoker/TestPoker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +56,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="findjar.last.used.dir" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -57,13 +70,13 @@
       <recent name="TestPoker" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestPoker in Poker">
+  <component name="RunManager" selected="JUnit.Tests in CardGames">
     <configuration name="PlayPoker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Poker.PlayPoker" />
-      <module name="Poker" />
+      <option name="MAIN_CLASS_NAME" value="CardGames.Poker.PlayPoker" />
+      <module name="CardGames" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Poker.*" />
+          <option name="PATTERN" value="CardGames.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -72,7 +85,7 @@
       </method>
     </configuration>
     <configuration name="TestDeckOfCards" type="JUnit" factoryName="JUnit">
-      <module name="Poker" />
+      <module name="CardGames" />
       <useClassPathOnly />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="" />
@@ -84,71 +97,70 @@
       </method>
     </configuration>
     <configuration name="TestPlayPoker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Poker" />
+      <module name="CardGames" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="TestPoker.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="TestPoker" />
-      <option name="MAIN_CLASS_NAME" value="TestPoker.TestPlayPoker" />
+      <option name="PACKAGE_NAME" value="Tests.TestPoker" />
+      <option name="MAIN_CLASS_NAME" value="Tests.TestPoker.TestPlayPoker" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestPoker in Poker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Poker" />
+    <configuration name="TestPoker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CardGames" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="TestPoker.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="TestPoker" />
+      <option name="PACKAGE_NAME" value="Tests.TestPoker" />
+      <option name="MAIN_CLASS_NAME" value="Tests.TestPoker.TestPoker" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests in CardGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CardGames" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Poker" />
+    <configuration name="Tests.TestPoker in CardGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CardGames" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="TestPoker.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="TestPoker" />
-      <option name="MAIN_CLASS_NAME" value="TestPoker.testPlayer" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="testPoker" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Poker" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TestPoker.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="TestPoker" />
-      <option name="MAIN_CLASS_NAME" value="TestPoker.testPoker" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="Tests.TestPoker" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestPoker in Poker" />
+        <item itemvalue="JUnit.Tests in CardGames" />
+        <item itemvalue="JUnit.Tests.TestPoker in CardGames" />
         <item itemvalue="JUnit.TestPlayPoker" />
         <item itemvalue="Application.PlayPoker" />
-        <item itemvalue="JUnit.testPoker" />
-        <item itemvalue="JUnit.testPlayer" />
+        <item itemvalue="JUnit.TestPoker" />
       </list>
     </recent_temporary>
   </component>
@@ -198,10 +210,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="410" height="466" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1587331980983" />
-    <state width="1398" height="241" key="GridCell.Tab.0.bottom" timestamp="1589333339220">
+    <state width="1398" height="241" key="GridCell.Tab.0.bottom" timestamp="1589409061395">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="241" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589333339220" />
+    <state width="1398" height="241" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589409061395" />
     <state width="1398" height="174" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1588126098607" />
     <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1587093538510" />
     <state width="1398" height="174" key="GridCell.Tab.0.bottom/1440.-101.1280.1001/0.23.1440.806@0.23.1440.806" timestamp="1588122058499" />
@@ -210,10 +222,10 @@
     <state width="1398" height="207" key="GridCell.Tab.0.bottom/1440.-101.1280.939/0.23.1440.877@0.23.1440.877" timestamp="1586629972635" />
     <state width="1398" height="241" key="GridCell.Tab.0.bottom/1440.-124.1280.1024/0.0.1440.900@0.0.1440.900" timestamp="1589244220899" />
     <state width="1238" height="241" key="GridCell.Tab.0.bottom/1440.-124.1280.1024/0.0.1440.900@1440.-124.1280.1024" timestamp="1588208195243" />
-    <state width="1398" height="241" key="GridCell.Tab.0.center" timestamp="1589333339217">
+    <state width="1398" height="241" key="GridCell.Tab.0.center" timestamp="1589409061392">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="241" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589333339217" />
+    <state width="1398" height="241" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589409061392" />
     <state width="1398" height="174" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1588126098605" />
     <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1587093538509" />
     <state width="1398" height="174" key="GridCell.Tab.0.center/1440.-101.1280.1001/0.23.1440.806@0.23.1440.806" timestamp="1588122058498" />
@@ -222,10 +234,10 @@
     <state width="1398" height="207" key="GridCell.Tab.0.center/1440.-101.1280.939/0.23.1440.877@0.23.1440.877" timestamp="1586629972623" />
     <state width="1398" height="241" key="GridCell.Tab.0.center/1440.-124.1280.1024/0.0.1440.900@0.0.1440.900" timestamp="1589244220896" />
     <state width="1238" height="241" key="GridCell.Tab.0.center/1440.-124.1280.1024/0.0.1440.900@1440.-124.1280.1024" timestamp="1588208195240" />
-    <state width="1398" height="241" key="GridCell.Tab.0.left" timestamp="1589333339216">
+    <state width="1398" height="241" key="GridCell.Tab.0.left" timestamp="1589409061391">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="241" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589333339216" />
+    <state width="1398" height="241" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589409061391" />
     <state width="1398" height="174" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1588126098604" />
     <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1587093538509" />
     <state width="1398" height="174" key="GridCell.Tab.0.left/1440.-101.1280.1001/0.23.1440.806@0.23.1440.806" timestamp="1588122058497" />
@@ -234,10 +246,10 @@
     <state width="1398" height="207" key="GridCell.Tab.0.left/1440.-101.1280.939/0.23.1440.877@0.23.1440.877" timestamp="1586629972618" />
     <state width="1398" height="241" key="GridCell.Tab.0.left/1440.-124.1280.1024/0.0.1440.900@0.0.1440.900" timestamp="1589244220895" />
     <state width="1238" height="241" key="GridCell.Tab.0.left/1440.-124.1280.1024/0.0.1440.900@1440.-124.1280.1024" timestamp="1588208195239" />
-    <state width="1398" height="241" key="GridCell.Tab.0.right" timestamp="1589333339219">
+    <state width="1398" height="241" key="GridCell.Tab.0.right" timestamp="1589409061394">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="241" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589333339219" />
+    <state width="1398" height="241" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589409061394" />
     <state width="1398" height="174" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1588126098606" />
     <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1587093538509" />
     <state width="1398" height="174" key="GridCell.Tab.0.right/1440.-101.1280.1001/0.23.1440.806@0.23.1440.806" timestamp="1588122058498" />

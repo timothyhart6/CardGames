@@ -1,4 +1,4 @@
-package Poker;
+package CardGames.Poker;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ public class PlayPoker {
 //        int playerCount = reader.nextInt();
 //
 //        Player player = new Player(playerName, chipCount);
-//        Poker poker = new Poker(player, playerCount);
+//        CardGames.Poker poker = new CardGames.Poker(player, playerCount);
 //
 //        //Play one round of poker (minus blinds and position)
 //        poker.deck.shuffle();

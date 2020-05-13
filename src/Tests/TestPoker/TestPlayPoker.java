@@ -1,7 +1,7 @@
-package TestPoker;
+package Tests.TestPoker;
 
-import Poker.PlayPoker;
-import Poker.Player;
+import CardGames.Poker.PlayPoker;
+import CardGames.Poker.Player;
 import org.junit.Assert;
 import org.junit.Test;
 
