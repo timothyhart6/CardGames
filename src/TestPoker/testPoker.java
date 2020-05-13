@@ -1,8 +1,8 @@
 package TestPoker;
 
-import Poker.Poker;
-import Poker.Player;
 import Poker.Card;
+import Poker.Player;
+import Poker.Poker;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -50,16 +50,28 @@ public class testPoker {
     }
     @Test
     public void testDealHoleCards() {
-        Player hero = new Player("Hero", 200);
+        Player player1 = new Player("Player 1", 200);
+        Player player2 = new Player("Player 2", 200);
+        Player player3 = new Player("Player 3", 200);
+
         ArrayList<Player> pokerPlayers = new ArrayList<Player>();
-        pokerPlayers.add(hero);
+        pokerPlayers.add(player1);
+        pokerPlayers.add(player2);
+        pokerPlayers.add(player3);
         Poker poker = new Poker(pokerPlayers);
 
         poker.dealHoleCards();
-        Assert.assertTrue(hero.getHand().contains(new Card("A", "H")));
-        Assert.assertTrue(hero.getHand().contains(new Card("K", "H")));
-        Assert.assertEquals(50, poker.deck.count());
-        Assert.assertEquals(2, hero.getHand().size());
+
+        Assert.assertTrue(player1.getHand().contains(new Card("A", "H")));
+        Assert.assertTrue(player2.getHand().contains(new Card("K", "H")));
+        Assert.assertTrue(player3.getHand().contains(new Card("Q", "H")));
+        Assert.assertTrue(player1.getHand().contains(new Card("J", "H")));
+        Assert.assertTrue(player2.getHand().contains(new Card("10", "H")));
+        Assert.assertTrue(player3.getHand().contains(new Card("9", "H")));
+        Assert.assertEquals(46, poker.deck.count());
+        Assert.assertEquals(2, player1.getHand().size());
+        Assert.assertEquals(2, player2.getHand().size());
+        Assert.assertEquals(2, player3.getHand().size());
     }
 
     @Test
@@ -81,28 +93,15 @@ public class testPoker {
         pokerPlayers.add(hero);
         Poker poker = new Poker(pokerPlayers);
 
-        poker.dealFlop();
-        Card[] expectedFlopCards = {new Card("A", "H"), new Card("K", "H"), new Card("Q", "H")};
-        Assert.assertEquals(49, poker.deck.count());
-        Assert.assertEquals(expectedFlopCards, poker.getFlop());
-    }
-
-    @Test
-    public void testFlopAsString() {
-        Player hero = new Player("Hero", 200);
-        ArrayList<Player> pokerPlayers = new ArrayList<Player>();
-        pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        ArrayList<Card>expectedFlop = new ArrayList<Card>();
+        expectedFlop.add(new Card("A", "H"));
+        expectedFlop.add(new Card("K", "H"));
+        expectedFlop.add(new Card("Q", "H"));
 
         poker.dealFlop();
 
-        ArrayList expectedFlop = new ArrayList();
-        expectedFlop.add("AH");
-        expectedFlop.add("KH");
-        expectedFlop.add("QH");
-
-        Assert.assertEquals(expectedFlop, poker.getFlopAsString());
         Assert.assertEquals(49, poker.deck.count());
+        Assert.assertEquals(expectedFlop, poker.getCommunityCards());
     }
 
     @Test
@@ -112,25 +111,13 @@ public class testPoker {
         pokerPlayers.add(hero);
         Poker poker = new Poker(pokerPlayers);
 
-        poker.dealTurn();
-
-        Card expectedTurnCard = new Card("A", "H");
-
-        Assert.assertEquals(51, poker.deck.count());
-        Assert.assertEquals(expectedTurnCard, poker.getTurn());
-    }
-
-    @Test
-    public void testTurnAsString() {
-        Player hero = new Player("Hero", 200);
-        ArrayList<Player> pokerPlayers = new ArrayList<Player>();
-        pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        ArrayList<Card>expectedTurn = new ArrayList<Card>();
+        expectedTurn.add(new Card("A", "H"));
 
         poker.dealTurn();
 
-        Assert.assertEquals("AH", poker.getTurnAsString());
         Assert.assertEquals(51, poker.deck.count());
+        Assert.assertEquals(expectedTurn, poker.getCommunityCards());
     }
 
     @Test
@@ -140,25 +127,35 @@ public class testPoker {
         pokerPlayers.add(hero);
         Poker poker = new Poker(pokerPlayers);
 
+        ArrayList<Card> expectedRiver = new ArrayList<Card>();
+        expectedRiver.add(new Card("A", "H"));
+
         poker.dealRiver();
 
-        Card expectedRiverCard = new Card("A", "H");
-
         Assert.assertEquals(51, poker.deck.count());
-        Assert.assertEquals(expectedRiverCard, poker.getRiver());
+        Assert.assertEquals(expectedRiver, poker.getCommunityCards());
     }
 
     @Test
-    public void testRiverAsString() {
+    public void testDisplayCommunityCards() {
         Player hero = new Player("Hero", 200);
         ArrayList<Player> pokerPlayers = new ArrayList<Player>();
         pokerPlayers.add(hero);
         Poker poker = new Poker(pokerPlayers);
 
+        ArrayList<String>expectedCommunityCards = new ArrayList<String>();
+        expectedCommunityCards.add("AH");
+        expectedCommunityCards.add("KH");
+        expectedCommunityCards.add("QH");
+        expectedCommunityCards.add("JH");
+        expectedCommunityCards.add("10H");
+
+        poker.dealFlop();
+        poker.dealTurn();
         poker.dealRiver();
 
-        Assert.assertEquals("AH", poker.getRiverAsString());
-        Assert.assertEquals(51, poker.deck.count());
+        Assert.assertEquals(expectedCommunityCards, poker.displayCommunityCards());
+        Assert.assertEquals(47, poker.deck.count());
     }
 
     @Test

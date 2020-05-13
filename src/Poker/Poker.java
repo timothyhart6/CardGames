@@ -3,19 +3,18 @@ package Poker;
 import java.util.ArrayList;
 
 public  class Poker {
-//    int numberOfPlayers;
-    Player humanPlayer;
-    public DeckOfCards deck= new DeckOfCards();
+
+    public DeckOfCards deck;
     ArrayList<Player> pokerPlayers;
-    Card[] flop;
-    Card turn;
-    Card river;
+    ArrayList<Card> communityCards;
     int pot;
-    private int tableBet;
-    private int checkCounter;
+    private int tableBet;          //Need to refactor name to convey the current maximum player bet at the table
+    private int checkCounter;     //checkCounter may not be needed anymore
 
     public Poker(ArrayList<Player> pokerPlayers) {
         this.pokerPlayers = pokerPlayers;
+        this.deck = new DeckOfCards();
+        this.communityCards = new ArrayList<Card>();
     }
 
     public void incrementCheckCounter() {
@@ -40,9 +39,6 @@ public  class Poker {
                 p = 0;
             }
         }
-//        holeCards.add(deck.dealTopCard());
-//        holeCards.add(deck.dealTopCard());
-//        humanPlayer.setHand(holeCards);
     }
 
     public void burnCard() {
@@ -50,38 +46,29 @@ public  class Poker {
     }
 
     public void dealFlop() {
-        Card[] flopCards = {deck.dealTopCard(), deck.dealTopCard(), deck.dealTopCard()};
-        flop = flopCards;
+        communityCards.add(deck.dealTopCard());
+        communityCards.add(deck.dealTopCard());
+        communityCards.add(deck.dealTopCard());
     }
 
     public void dealTurn() {
-        Card turnCard = deck.dealTopCard();
-        turn = turnCard;
+        communityCards.add(deck.dealTopCard());
     }
 
     public void dealRiver() {
-        Card riverCard = deck.dealTopCard();
-        river = riverCard;
+        communityCards.add(deck.dealTopCard());
     }
 
-    public ArrayList getFlopAsString() {
-        ArrayList stringFlop = new ArrayList();
-
-        stringFlop.add(flop[0].rank + flop[0].suit);
-        stringFlop.add(flop[1].rank + flop[1].suit);
-        stringFlop.add(flop[2].rank + flop[2].suit);
-
-        return stringFlop;
+    public ArrayList<String> displayCommunityCards() {
+        ArrayList<String> communityCardsAsStrings = new ArrayList<String>();
+        for (int i = 0; i < communityCards.size(); i++) {
+            communityCardsAsStrings.add(communityCards.get(i).rank + communityCards.get(i).suit);
+        }
+        return communityCardsAsStrings;
     }
 
-    public String getTurnAsString() {
-        String stringTurn = turn.rank + turn.suit;
-        return stringTurn;
-    }
-
-    public String getRiverAsString() {
-        String stringRiver = river.rank + river.suit;
-        return stringRiver;
+    public ArrayList<Card> getCommunityCards() {
+        return communityCards;
     }
 
     public int getTableBet() {
@@ -99,16 +86,5 @@ public  class Poker {
     public void setCheckCounter(int checkCounter) {
         this.checkCounter = checkCounter;
     }
-
-    public Card[] getFlop() {
-        return flop;
-    }
-
-    public Card getTurn() {
-        return turn;
-    }
-
-    public Card getRiver() {
-        return river;
-    }
 }
+
