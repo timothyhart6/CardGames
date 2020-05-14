@@ -1,7 +1,7 @@
 package Tests.TestPoker;
 
 import CardGames.Poker.PlayPoker;
-import CardGames.Poker.Player;
+import CardGames.Poker.PokerPlayer;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,8 +14,8 @@ public class TestPlayPoker {
 
         playPoker.createPokerPlayers(numberOfPokerPlayers);
 
-        Player expectedPlayerOne = new Player("Player 1", 200);
-        Player expectedPlayerTwo= new Player("Player 2", 200);
+        PokerPlayer expectedPlayerOne = new PokerPlayer("Player 1", 200);
+        PokerPlayer expectedPlayerTwo= new PokerPlayer("Player 2", 200);
 
         Assert.assertEquals(2, playPoker.getPokerPlayers().size());
         Assert.assertEquals(expectedPlayerOne.getName(), playPoker.getPokerPlayers().get(0).getName());

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class PlayPoker {
-    ArrayList <Player> pokerPlayers = new ArrayList<Player>();
+    ArrayList <PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
 
 //    public static void main(String[] args) {
 //
@@ -97,12 +97,12 @@ public class PlayPoker {
 //
     public void createPokerPlayers(int numberOfPokerPlayers) {
         for (int i = 0; i < numberOfPokerPlayers; i++) {
-            Player player = new Player("Player " + (i +1), 200);
+            PokerPlayer player = new PokerPlayer("Player " + (i +1), 200);
             pokerPlayers.add(player);
         }
     }
 
-    public ArrayList<Player> getPokerPlayers() {
+    public ArrayList<PokerPlayer> getPokerPlayers() {
         return pokerPlayers;
     }
 }

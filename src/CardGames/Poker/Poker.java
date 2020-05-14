@@ -1,22 +1,21 @@
 package CardGames.Poker;
 
 import CardGames.Card;
-import CardGames.DeckOfCards;
+import CardGames.CardGame;
 
 import java.util.ArrayList;
 
-public  class Poker {
+public class Poker extends CardGame {
 
-    public DeckOfCards deck;
-    ArrayList<Player> pokerPlayers;
+    ArrayList<PokerPlayer> pokerPlayers;
     ArrayList<Card> communityCards;
     int pot;
     private int tableBet;          //Need to refactor name to convey the current maximum player bet at the table
     private int checkCounter;     //checkCounter may not be needed anymore
 
-    public Poker(ArrayList<Player> pokerPlayers) {
+    public Poker(ArrayList<PokerPlayer> pokerPlayers) {
+        super();
         this.pokerPlayers = pokerPlayers;
-        this.deck = new DeckOfCards();
         this.communityCards = new ArrayList<Card>();
     }
 
@@ -59,6 +58,7 @@ public  class Poker {
     }
 
     public void dealRiver() {
+
         communityCards.add(deck.dealTopCard());
     }
 

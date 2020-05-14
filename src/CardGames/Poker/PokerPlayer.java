@@ -4,14 +4,14 @@ import CardGames.Card;
 
 import java.util.ArrayList;
 
-public class Player {
+public class PokerPlayer {
 
     String name;
     int chipCount;
     ArrayList <Card> hand = new ArrayList<Card>();
     int playerBet;
 
-    public Player(String name, int chipCount){
+    public PokerPlayer(String name, int chipCount){
          this.name = name;
          this.chipCount = chipCount;
     }

@@ -2,7 +2,7 @@ package Tests.TestPoker;
 
 import CardGames.Card;
 import CardGames.DeckOfCards;
-import CardGames.Poker.Player;
+import CardGames.Poker.PokerPlayer;
 import CardGames.Poker.Poker;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,19 +13,19 @@ public class TestPlayer {
 
     @Test
     public void testPlayerName() {
-        Player bob = new Player("Bob", 200);
+        PokerPlayer bob = new PokerPlayer("Bob", 200);
         Assert.assertEquals("Bob", bob.getName());
     }
 
     @Test
     public void testPlayerHasChips() {
-        Player jake = new Player("Jake", 200);
+        PokerPlayer jake = new PokerPlayer("Jake", 200);
         Assert.assertEquals(200, jake.getChipCount());
     }
 
     @Test
     public void testPlayerHand() {
-        Player hero = new Player("Hero", 200);
+        PokerPlayer hero = new PokerPlayer("Hero", 200);
         DeckOfCards deck = new DeckOfCards();
 
         DeckOfCards expectedDeck = new DeckOfCards();
@@ -41,8 +41,8 @@ public class TestPlayer {
 
     @Test
     public void testCheck() {
-        Player hero = new Player("Hero", 200);
-        ArrayList<Player> pokerPlayers = new ArrayList<Player>();
+        PokerPlayer hero = new PokerPlayer("Hero", 200);
+        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         Poker poker = new Poker(pokerPlayers);
         poker.dealHoleCards();
@@ -56,8 +56,8 @@ public class TestPlayer {
 
     @Test
     public void testFold() {
-        Player hero = new Player("Hero", 200);
-        ArrayList<Player> pokerPlayers = new ArrayList<Player>();
+        PokerPlayer hero = new PokerPlayer("Hero", 200);
+        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         Poker poker = new Poker(pokerPlayers);
         poker.dealHoleCards();
@@ -73,9 +73,9 @@ public class TestPlayer {
 
     @Test
     public void testCall() {
-        Player hero = new Player("Hero", 200);
-        Player bettor = new Player("Betting Player", 200);
-        ArrayList<Player> pokerPlayers = new ArrayList<Player>();
+        PokerPlayer hero = new PokerPlayer("Hero", 200);
+        PokerPlayer bettor = new PokerPlayer("Betting Player", 200);
+        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         pokerPlayers.add(bettor);
         Poker poker = new Poker(pokerPlayers);
@@ -93,8 +93,8 @@ public class TestPlayer {
 
     @Test
     public void testBet() {
-        Player hero = new Player("Hero", 200);
-        ArrayList<Player> pokerPlayers = new ArrayList<Player>();
+        PokerPlayer hero = new PokerPlayer("Hero", 200);
+        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         Poker poker = new Poker(pokerPlayers);
         poker.dealHoleCards();
@@ -108,9 +108,9 @@ public class TestPlayer {
 
     @Test
     public void testRaise() {
-        Player hero = new Player("Hero", 200);
-        Player bettingPlayer = new Player("Bettor", 200);
-        ArrayList<Player> pokerPlayers = new ArrayList<Player>();
+        PokerPlayer hero = new PokerPlayer("Hero", 200);
+        PokerPlayer bettingPlayer = new PokerPlayer("Bettor", 200);
+        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         pokerPlayers.add(bettingPlayer);
         Poker poker = new Poker(pokerPlayers);
@@ -127,9 +127,9 @@ public class TestPlayer {
 
     @Test
     public void testReraise() {
-        Player hero = new Player("Hero", 200);
-        Player raisingPlayer = new Player("Raiser", 200);
-        ArrayList<Player> pokerPlayers = new ArrayList<Player>();
+        PokerPlayer hero = new PokerPlayer("Hero", 200);
+        PokerPlayer raisingPlayer = new PokerPlayer("Raiser", 200);
+        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         pokerPlayers.add(raisingPlayer);
         Poker poker = new Poker(pokerPlayers);
@@ -147,8 +147,8 @@ public class TestPlayer {
 
     @Test
     public void testGetHandAsString() {
-        Player hero = new Player("Hero", 200);
-        ArrayList<Player> pokerPlayers = new ArrayList<Player>();
+        PokerPlayer hero = new PokerPlayer("Hero", 200);
+        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         Poker poker = new Poker(pokerPlayers);
         poker.dealHoleCards();
