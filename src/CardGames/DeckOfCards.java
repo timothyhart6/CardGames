@@ -86,4 +86,8 @@ public class  DeckOfCards {
     public void discardTopCard() {
         deck.remove(deck.size() - 1);
     }
+
+    public ArrayList getDeck() {
+        return deck;
+    }
 }

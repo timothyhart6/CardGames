@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Card {
     String rank;
     String suit;
+    int value;
 
     public Card(String rank, String suit) {
         this.rank = rank;
@@ -27,5 +28,13 @@ public class Card {
 
     public String getSuit() {
         return suit;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 }
