@@ -26,12 +26,12 @@ public class  DeckOfCards {
     }
 
     public String findCard(String card) {
-        String[] cardArray = card.split("");
-        Card cardToObject = new Card(cardArray[0], cardArray[1]);
-        if (deck.contains(cardToObject)) {
+        String[] cardProperties = card.split("");
+        Card cardAsObject = new Card(cardProperties[0], cardProperties[1]);
+        if (deck.contains(cardAsObject)) {
             return card;
         } else {
-            return cardToObject.rank + cardToObject.suit + " is not in the deck.";
+            return cardAsObject.rank + cardAsObject.suit + " is not in the deck.";
         }
     }
 
@@ -85,6 +85,12 @@ public class  DeckOfCards {
 
     public void discardTopCard() {
         deck.remove(deck.size() - 1);
+    }
+
+    public Card returnCard (String card) {
+        String[] cardProperties = card.split("");
+        int index = deck.indexOf(new Card(cardProperties[0], cardProperties[1]));
+        return (Card) deck.get(index);
     }
 
     public ArrayList getDeck() {

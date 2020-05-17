@@ -23,16 +23,6 @@ public class TestDeckOfCards {
         Assert.assertNotEquals("3S", deck.findCard("2S"));
         Assert.assertEquals("AD", deck.findCard("AD"));
     }
-// ### MOVE TO GAME TEST SUITE ###
-//    @Test
-//    public void testMultipleCardsCanHaveIdenticalNumericalValues() {
-//        DeckOfCards deck = new DeckOfCards();
-//        Card jackOfDiamonds = new Card("J", "D");
-//        Card jackOfHearts = new Card("J", "H");
-//        Assert.assertEquals(11, deck.getCardNumericalValue(jackOfDiamonds));
-//        Assert.assertEquals(11, deck.getCardNumericalValue(jackOfHearts));
-//        Assert.assertNotEquals(8, deck.getCardNumericalValue(jackOfHearts));
-//    }
 
     @Test
     public void testSuitsInTheDeck() {
@@ -87,6 +77,20 @@ public class TestDeckOfCards {
         deck.discardTopCard();
         Assert.assertEquals(51, deck.count());
         Assert.assertEquals("AH is not in the deck.", deck.findCard("AH"));
+    }
+
+    @Test
+    public void testReturnCard() {
+        DeckOfCards deck = new DeckOfCards();
+
+        Card expectedSixOfSpades = new Card("6", "S");
+        Card expectedAceOfHearts = new Card("A", "H");
+
+        Card actualSixOfSpades = deck.returnCard("6S");
+        Card actualAceOfHearts = deck.returnCard("AH");
+
+        Assert.assertEquals(expectedSixOfSpades, actualSixOfSpades);
+        Assert.assertEquals(expectedAceOfHearts, actualAceOfHearts);
     }
 
 }

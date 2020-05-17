@@ -8,14 +8,18 @@ import org.junit.Test;
 public class TestCardGame {
 
     @Test
-    public void testPokerValueOfCard() {
+    public void testCardValues() {
 
         CardGame cardGame = new CardGame();
-//        Card jackOfHearts = new Card("J", "H");
 
-        cardGame.setCardValues();
-       Card jackOfHearts = (Card) cardGame.deck.getDeck().get(3);
+        Card sixOfClubs =  cardGame.deck.returnCard("6C");
+        Card aceOfHearts = cardGame.deck.returnCard("AH");
+        Card jackOfSpades = cardGame.deck.returnCard("JS");
+        Card jackOfHearts = cardGame.deck.returnCard("JH");
 
+        Assert.assertEquals(6, sixOfClubs.getValue());
+        Assert.assertEquals(14, aceOfHearts.getValue());
+        Assert.assertEquals(11, jackOfSpades.getValue());
         Assert.assertEquals(11, jackOfHearts.getValue());
     }
 }

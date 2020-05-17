@@ -4,6 +4,7 @@ public class CardGame {
 
     public CardGame() {
         this.deck = new DeckOfCards();
+        setCardValues();
     }
 
     public void setCardValues() {
