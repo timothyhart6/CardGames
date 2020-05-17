@@ -3,7 +3,7 @@ package Tests.TestPoker;
 import CardGames.Card;
 import CardGames.DeckOfCards;
 import CardGames.Poker.PokerPlayer;
-import CardGames.Poker.Poker;
+import CardGames.Poker.PokerGame;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -44,7 +44,7 @@ public class TestPlayer {
         PokerPlayer hero = new PokerPlayer("Hero", 200);
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
         poker.dealHoleCards();
 
         hero.check();
@@ -59,7 +59,7 @@ public class TestPlayer {
         PokerPlayer hero = new PokerPlayer("Hero", 200);
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
         poker.dealHoleCards();
 
         poker.playerAction(hero.bet(10));
@@ -78,7 +78,7 @@ public class TestPlayer {
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         pokerPlayers.add(bettor);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
 
         poker.dealHoleCards();
 
@@ -96,7 +96,7 @@ public class TestPlayer {
         PokerPlayer hero = new PokerPlayer("Hero", 200);
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
         poker.dealHoleCards();
 
         hero.bet(10);
@@ -113,7 +113,7 @@ public class TestPlayer {
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         pokerPlayers.add(bettingPlayer);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
         poker.dealHoleCards();
 
         poker.playerAction(bettingPlayer.bet(10));
@@ -132,7 +132,7 @@ public class TestPlayer {
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         pokerPlayers.add(raisingPlayer);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
         poker.dealHoleCards();
 
         poker.playerAction(hero.bet(10));
@@ -150,7 +150,7 @@ public class TestPlayer {
         PokerPlayer hero = new PokerPlayer("Hero", 200);
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
         poker.dealHoleCards();
 
         Assert.assertTrue(hero.getHandAsString().contains("AH"));

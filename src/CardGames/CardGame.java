@@ -50,7 +50,7 @@ public class CardGame {
                     value = 13;
                     break;
                 case "A" :
-                    value = 14;
+                    value = 1;
                     break;
             }
             card.setValue(value);

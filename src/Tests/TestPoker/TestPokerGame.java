@@ -1,14 +1,32 @@
 package Tests.TestPoker;
 
 import CardGames.Card;
+import CardGames.Poker.PokerGame;
 import CardGames.Poker.PokerPlayer;
-import CardGames.Poker.Poker;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class TestPoker {
+public class TestPokerGame {
+
+    @Test
+    public void testPokerCardValues() {
+        PokerPlayer hero = new PokerPlayer("Hero", 200);
+        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
+        pokerPlayers.add(hero);
+        PokerGame poker = new PokerGame(pokerPlayers);
+
+        Card sixOfClubs =  poker.deck.returnCard("6C");
+        Card aceOfHearts = poker.deck.returnCard("AH");
+        Card jackOfSpades = poker.deck.returnCard("JS");
+        Card jackOfHearts = poker.deck.returnCard("JH");
+
+        Assert.assertEquals(6, sixOfClubs.getValue());
+        Assert.assertEquals(14, aceOfHearts.getValue());
+        Assert.assertEquals(11, jackOfSpades.getValue());
+        Assert.assertEquals(11, jackOfHearts.getValue());
+    }
 
     @Test
     public void testPlayerAction() {
@@ -25,7 +43,7 @@ public class TestPoker {
         pokerPlayers.add(bettingPlayer);
         pokerPlayers.add(raisingPlayer);
 
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
         poker.dealHoleCards();
 
         poker.playerAction(checkingPlayer.check());
@@ -58,7 +76,7 @@ public class TestPoker {
         pokerPlayers.add(player1);
         pokerPlayers.add(player2);
         pokerPlayers.add(player3);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
 
         poker.dealHoleCards();
 
@@ -79,7 +97,7 @@ public class TestPoker {
         PokerPlayer hero = new PokerPlayer("Hero", 200);
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
 
         poker.burnCard();
 
@@ -91,7 +109,7 @@ public class TestPoker {
         PokerPlayer hero = new PokerPlayer("Hero", 200);
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
 
         ArrayList<Card>expectedFlop = new ArrayList<Card>();
         expectedFlop.add(new Card("A", "H"));
@@ -109,7 +127,7 @@ public class TestPoker {
         PokerPlayer hero = new PokerPlayer("Hero", 200);
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
 
         ArrayList<Card>expectedTurn = new ArrayList<Card>();
         expectedTurn.add(new Card("A", "H"));
@@ -125,7 +143,7 @@ public class TestPoker {
         PokerPlayer hero = new PokerPlayer("Hero", 200);
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
 
         ArrayList<Card> expectedRiver = new ArrayList<Card>();
         expectedRiver.add(new Card("A", "H"));
@@ -141,7 +159,7 @@ public class TestPoker {
         PokerPlayer hero = new PokerPlayer("Hero", 200);
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
 
         ArrayList<String>expectedCommunityCards = new ArrayList<String>();
         expectedCommunityCards.add("AH");
@@ -163,7 +181,7 @@ public class TestPoker {
         PokerPlayer hero = new PokerPlayer("Hero", 200);
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
-        Poker poker = new Poker(pokerPlayers);
+        PokerGame poker = new PokerGame(pokerPlayers);
         poker.incrementCheckCounter();
 
         Assert.assertEquals(1, poker.getCheckCounter());

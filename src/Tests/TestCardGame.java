@@ -18,7 +18,7 @@ public class TestCardGame {
         Card jackOfHearts = cardGame.deck.returnCard("JH");
 
         Assert.assertEquals(6, sixOfClubs.getValue());
-        Assert.assertEquals(14, aceOfHearts.getValue());
+        Assert.assertEquals(1, aceOfHearts.getValue());
         Assert.assertEquals(11, jackOfSpades.getValue());
         Assert.assertEquals(11, jackOfHearts.getValue());
     }
