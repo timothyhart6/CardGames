@@ -44,7 +44,9 @@ public class TestPokerGame {
         pokerPlayers.add(raisingPlayer);
 
         PokerGame poker = new PokerGame(pokerPlayers);
+        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
         poker.dealHoleCards();
+
 
         poker.playerAction(checkingPlayer.check());
         Assert.assertEquals(0, checkingPlayer.getPlayerBet());
@@ -77,8 +79,12 @@ public class TestPokerGame {
         pokerPlayers.add(player2);
         pokerPlayers.add(player3);
         PokerGame poker = new PokerGame(pokerPlayers);
-
+        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
         poker.dealHoleCards();
+
+        player1 = poker.getPokerPlayersInHand().get(0);
+        player2 = poker.getPokerPlayersInHand().get(1);
+        player3 = poker.getPokerPlayersInHand().get(2);
 
         Assert.assertTrue(player1.getHand().contains(new Card("A", "H")));
         Assert.assertTrue(player2.getHand().contains(new Card("K", "H")));
@@ -86,6 +92,7 @@ public class TestPokerGame {
         Assert.assertTrue(player1.getHand().contains(new Card("J", "H")));
         Assert.assertTrue(player2.getHand().contains(new Card("10", "H")));
         Assert.assertTrue(player3.getHand().contains(new Card("9", "H")));
+
         Assert.assertEquals(46, poker.deck.count());
         Assert.assertEquals(2, player1.getHand().size());
         Assert.assertEquals(2, player2.getHand().size());

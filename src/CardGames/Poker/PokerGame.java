@@ -7,7 +7,8 @@ import java.util.ArrayList;
 
 public class PokerGame extends CardGame {
 
-    ArrayList<PokerPlayer> pokerPlayers;
+    private ArrayList<PokerPlayer> pokerPlayersAtTable;
+    private ArrayList<PokerPlayer> pokerPlayersInHand;
     ArrayList<Card> communityCards;
     int pot;
     private int tableBet;          //Need to refactor name to convey the current maximum player bet at the table
@@ -15,7 +16,7 @@ public class PokerGame extends CardGame {
 
     public PokerGame(ArrayList<PokerPlayer> pokerPlayers) {
         super();
-        this.pokerPlayers = pokerPlayers;
+        this.pokerPlayersAtTable = pokerPlayers;
         this.communityCards = new ArrayList<Card>();
     }
 
@@ -84,9 +85,9 @@ public class PokerGame extends CardGame {
         int p = 0;
         int c = 0;
         while (c < 2) {
-            pokerPlayers.get(p).setHand(deck.dealTopCard());
+            pokerPlayersInHand.get(p).setHand(deck.dealTopCard());
             p ++;
-            if (p == pokerPlayers.size()) {
+            if (p == pokerPlayersInHand.size()) {
                 c++;
                 p = 0;
             }
@@ -118,6 +119,18 @@ public class PokerGame extends CardGame {
             communityCardsAsStrings.add(communityCards.get(i).getRank() + communityCards.get(i).getSuit());
         }
         return communityCardsAsStrings;
+    }
+
+    public ArrayList<PokerPlayer> getPokerPlayersAtTable() {
+        return pokerPlayersAtTable;
+    }
+
+    public ArrayList<PokerPlayer> getPokerPlayersInHand() {
+        return pokerPlayersInHand;
+    }
+
+    public void setPokerPlayersInHand(ArrayList<PokerPlayer> pokerPlayersInHand) {
+        this.pokerPlayersInHand = pokerPlayersInHand;
     }
 
     public ArrayList<Card> getCommunityCards() {

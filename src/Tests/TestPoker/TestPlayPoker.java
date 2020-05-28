@@ -1,6 +1,7 @@
 package Tests.TestPoker;
 
 import CardGames.Poker.PlayPoker;
+import CardGames.Poker.PokerGame;
 import CardGames.Poker.PokerPlayer;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,5 +23,19 @@ public class TestPlayPoker {
         Assert.assertEquals(expectedPlayerTwo.getName(), playPoker.getPokerPlayers().get(1).getName());
         Assert.assertEquals(expectedPlayerOne.getChipCount(), playPoker.getPokerPlayers().get(0).getChipCount());
         Assert.assertEquals(expectedPlayerTwo.getChipCount(), playPoker.getPokerPlayers().get(1).getChipCount());
+    }
+
+    @Test
+    public void testCompleteBettingRound() {
+        PlayPoker playPoker = new PlayPoker();
+        playPoker.createPokerPlayers(3);
+        PokerGame pokerGame = new PokerGame(playPoker.getPokerPlayers());
+        pokerGame.setPokerPlayersInHand(pokerGame.getPokerPlayersAtTable());
+
+        playPoker.completeBettingRound(pokerGame);
+
+        Assert.assertEquals(3, playPoker.getPlayerActions().length);
+
+
     }
 }

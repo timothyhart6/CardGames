@@ -45,6 +45,7 @@ public class TestPlayer {
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         PokerGame poker = new PokerGame(pokerPlayers);
+        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
         poker.dealHoleCards();
 
         hero.check();
@@ -60,6 +61,7 @@ public class TestPlayer {
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         PokerGame poker = new PokerGame(pokerPlayers);
+        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
         poker.dealHoleCards();
 
         poker.playerAction(hero.bet(10));
@@ -79,7 +81,7 @@ public class TestPlayer {
         pokerPlayers.add(hero);
         pokerPlayers.add(bettor);
         PokerGame poker = new PokerGame(pokerPlayers);
-
+        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
         poker.dealHoleCards();
 
         poker.setTableBet(2);
@@ -97,6 +99,8 @@ public class TestPlayer {
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         PokerGame poker = new PokerGame(pokerPlayers);
+        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
+
         poker.dealHoleCards();
 
         hero.bet(10);
@@ -114,6 +118,7 @@ public class TestPlayer {
         pokerPlayers.add(hero);
         pokerPlayers.add(bettingPlayer);
         PokerGame poker = new PokerGame(pokerPlayers);
+        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
         poker.dealHoleCards();
 
         poker.playerAction(bettingPlayer.bet(10));
@@ -133,6 +138,7 @@ public class TestPlayer {
         pokerPlayers.add(hero);
         pokerPlayers.add(raisingPlayer);
         PokerGame poker = new PokerGame(pokerPlayers);
+        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
         poker.dealHoleCards();
 
         poker.playerAction(hero.bet(10));
@@ -151,6 +157,7 @@ public class TestPlayer {
         ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
         pokerPlayers.add(hero);
         PokerGame poker = new PokerGame(pokerPlayers);
+        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
         poker.dealHoleCards();
 
         Assert.assertTrue(hero.getHandAsString().contains("AH"));

@@ -6,10 +6,11 @@ import java.util.ArrayList;
 
 public class PokerPlayer {
 
-    String name;
-    int chipCount;
-    ArrayList <Card> hand = new ArrayList<Card>();
-    int playerBet;
+    private String name;
+    private int chipCount;
+    private ArrayList <Card> hand = new ArrayList<Card>();
+    private int playerBet;
+    private  String playerAction;
 
     public PokerPlayer(String name, int chipCount){
          this.name = name;
@@ -17,24 +18,28 @@ public class PokerPlayer {
     }
 
     public int check() {
+        setPlayerAction("Check");
         return playerBet;
     }
 
     public int fold() {
         hand.clear();
         playerBet = 0;
+        setPlayerAction("Fold");
         return playerBet;
     }
 
     public int call(int currentBet) {
         chipCount -= currentBet;
         playerBet = currentBet;
+        setPlayerAction("Call");
         return playerBet;
     }
     
     public int bet(int bet) {
         chipCount -= bet;
         playerBet = bet;
+        setPlayerAction("Bet");
         return playerBet;
     }
 
@@ -42,19 +47,8 @@ public class PokerPlayer {
         int betDifference = tableBet - playerBet;
         chipCount -= betDifference + raise;
         playerBet = tableBet + raise;
+        setPlayerAction("Raise");
         return playerBet;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getChipCount() {
-        return chipCount;
-    }
-
-    public void setHand(Card card) {
-        this.hand.add(card);
     }
 
     public ArrayList getHandAsString() {
@@ -66,12 +60,39 @@ public class PokerPlayer {
         return stringHand;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getChipCount() {
+        return chipCount;
+    }
+
+    public void setChipCount(int chipCount) {
+        this.chipCount = chipCount;
+    }
+
     public ArrayList getHand() {
         return hand;
     }
 
+    public void setHand(Card card) {
+        this.hand.add(card);
+    }
 
     public int getPlayerBet() {
         return playerBet;
+    }
+
+    public String getPlayerAction() {
+        return playerAction;
+    }
+
+    public void setPlayerAction(String playerAction) {
+        this.playerAction = playerAction;
     }
 }
