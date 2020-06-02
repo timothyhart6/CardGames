@@ -3,39 +3,39 @@ package Tests.TestPoker;
 import CardGames.Poker.PlayPoker;
 import CardGames.Poker.PokerGame;
 import CardGames.Poker.PokerPlayer;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestPlayPoker {
 
+    PlayPoker playPoker;
+    PokerGame pokerGame;
+    
+    @BeforeEach
+    public void init() {
+        playPoker = new PlayPoker();
+        playPoker.createPokerPlayers(2);
+        pokerGame = new PokerGame(playPoker.getPokerPlayers());
+        pokerGame.setPokerPlayersInHand(pokerGame.getPokerPlayersAtTable());
+    }
+
     @Test
     public void testCreateArrayOfPokerPlayers() {
-        int numberOfPokerPlayers = 2;
-        PlayPoker playPoker = new PlayPoker();
-
-        playPoker.createPokerPlayers(numberOfPokerPlayers);
-
         PokerPlayer expectedPlayerOne = new PokerPlayer("Player 1", 200);
         PokerPlayer expectedPlayerTwo= new PokerPlayer("Player 2", 200);
 
-        Assert.assertEquals(2, playPoker.getPokerPlayers().size());
-        Assert.assertEquals(expectedPlayerOne.getName(), playPoker.getPokerPlayers().get(0).getName());
-        Assert.assertEquals(expectedPlayerTwo.getName(), playPoker.getPokerPlayers().get(1).getName());
-        Assert.assertEquals(expectedPlayerOne.getChipCount(), playPoker.getPokerPlayers().get(0).getChipCount());
-        Assert.assertEquals(expectedPlayerTwo.getChipCount(), playPoker.getPokerPlayers().get(1).getChipCount());
+        assertEquals(2, playPoker.getPokerPlayers().size());
+        assertEquals(expectedPlayerOne.getName(), playPoker.getPokerPlayers().get(0).getName());
+        assertEquals(expectedPlayerTwo.getName(), playPoker.getPokerPlayers().get(1).getName());
+        assertEquals(expectedPlayerOne.getChipCount(), playPoker.getPokerPlayers().get(0).getChipCount());
+        assertEquals(expectedPlayerTwo.getChipCount(), playPoker.getPokerPlayers().get(1).getChipCount());
     }
 
     @Test
     public void testCompleteBettingRound() {
-        PlayPoker playPoker = new PlayPoker();
-        playPoker.createPokerPlayers(3);
-        PokerGame pokerGame = new PokerGame(playPoker.getPokerPlayers());
-        pokerGame.setPokerPlayersInHand(pokerGame.getPokerPlayersAtTable());
-
         playPoker.completeBettingRound(pokerGame);
 
-        Assert.assertEquals(3, playPoker.getPlayerActions().length);
-
-
+        assertEquals(2, playPoker.getPlayerActions().length);
     }
 }

@@ -2,166 +2,116 @@ package Tests.TestPoker;
 
 import CardGames.Card;
 import CardGames.DeckOfCards;
-import CardGames.Poker.PokerPlayer;
 import CardGames.Poker.PokerGame;
-import org.junit.Assert;
-import org.junit.Test;
+import CardGames.Poker.PokerPlayer;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class TestPlayer {
+    PokerPlayer hero;
+    ArrayList<PokerPlayer> pokerPlayers;
+    PokerGame poker;
+
+    @BeforeEach
+    public void init() {
+        hero = new PokerPlayer("Hero", 200);
+        pokerPlayers = new ArrayList<PokerPlayer>();
+        pokerPlayers.add(hero);
+        poker = new PokerGame(pokerPlayers);
+        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
+        poker.dealHoleCards();
+    }
 
     @Test
     public void testPlayerName() {
-        PokerPlayer bob = new PokerPlayer("Bob", 200);
-        Assert.assertEquals("Bob", bob.getName());
+        assertEquals("Hero", hero.getName());
     }
 
     @Test
     public void testPlayerHasChips() {
-        PokerPlayer jake = new PokerPlayer("Jake", 200);
-        Assert.assertEquals(200, jake.getChipCount());
+        assertEquals(200, hero.getChipCount());
     }
 
     @Test
     public void testPlayerHand() {
-        PokerPlayer hero = new PokerPlayer("Hero", 200);
-        DeckOfCards deck = new DeckOfCards();
-
         DeckOfCards expectedDeck = new DeckOfCards();
         ArrayList expectedHand = new ArrayList<Card>();
+
         expectedHand.add(expectedDeck.dealTopCard());
         expectedHand.add(expectedDeck.dealTopCard());
 
-        hero.setHand(deck.dealTopCard());
-        hero.setHand(deck.dealTopCard());
-
-        Assert.assertEquals(expectedHand, hero.getHand());
+        assertEquals(expectedHand, hero.getHand());
     }
 
     @Test
     public void testCheck() {
-        PokerPlayer hero = new PokerPlayer("Hero", 200);
-        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
-        pokerPlayers.add(hero);
-        PokerGame poker = new PokerGame(pokerPlayers);
-        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
-        poker.dealHoleCards();
-
         hero.check();
 
-        Assert.assertEquals(0, hero.getPlayerBet());
-        Assert.assertEquals(200, hero.getChipCount());
-        Assert.assertEquals(2, hero.getHand().size());
+        assertEquals(0, hero.getPlayerBet());
+        assertEquals(200, hero.getChipCount());
+        assertEquals(2, hero.getHand().size());
     }
 
     @Test
     public void testFold() {
-        PokerPlayer hero = new PokerPlayer("Hero", 200);
-        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
-        pokerPlayers.add(hero);
-        PokerGame poker = new PokerGame(pokerPlayers);
-        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
-        poker.dealHoleCards();
-
         poker.playerAction(hero.bet(10));
-
         hero.fold();
 
-        Assert.assertEquals(0, hero.getPlayerBet());
-        Assert.assertEquals(190, hero.getChipCount());
-        Assert.assertEquals(0, hero.getHand().size());
+        assertEquals(0, hero.getPlayerBet());
+        assertEquals(190, hero.getChipCount());
+        assertEquals(0, hero.getHand().size());
     }
 
     @Test
     public void testCall() {
-        PokerPlayer hero = new PokerPlayer("Hero", 200);
-        PokerPlayer bettor = new PokerPlayer("Betting Player", 200);
-        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
-        pokerPlayers.add(hero);
-        pokerPlayers.add(bettor);
-        PokerGame poker = new PokerGame(pokerPlayers);
-        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
-        poker.dealHoleCards();
-
         poker.setTableBet(2);
-
         hero.call(poker.getTableBet());
 
-        Assert.assertEquals(2, hero.getPlayerBet());
-        Assert.assertEquals(198, hero.getChipCount());
-        Assert.assertEquals(2, hero.getHand().size());
+        assertEquals(2, hero.getPlayerBet());
+        assertEquals(198, hero.getChipCount());
+        assertEquals(2, hero.getHand().size());
     }
 
     @Test
     public void testBet() {
-        PokerPlayer hero = new PokerPlayer("Hero", 200);
-        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
-        pokerPlayers.add(hero);
-        PokerGame poker = new PokerGame(pokerPlayers);
-        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
-
-        poker.dealHoleCards();
-
         hero.bet(10);
 
-        Assert.assertEquals(10, hero.getPlayerBet());
-        Assert.assertEquals(190, hero.getChipCount());
-        Assert.assertEquals(2, hero.getHand().size());
+        assertEquals(10, hero.getPlayerBet());
+        assertEquals(190, hero.getChipCount());
+        assertEquals(2, hero.getHand().size());
     }
 
     @Test
     public void testRaise() {
-        PokerPlayer hero = new PokerPlayer("Hero", 200);
-        PokerPlayer bettingPlayer = new PokerPlayer("Bettor", 200);
-        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
-        pokerPlayers.add(hero);
-        pokerPlayers.add(bettingPlayer);
-        PokerGame poker = new PokerGame(pokerPlayers);
-        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
-        poker.dealHoleCards();
-
-        poker.playerAction(bettingPlayer.bet(10));
-
+        poker.setTableBet(10);
         hero.raise(poker.getTableBet(), 40);
 
-        Assert.assertEquals(50, hero.getPlayerBet());
-        Assert.assertEquals(150, hero.getChipCount());
-        Assert.assertEquals(2, hero.getHand().size());
+        assertEquals(50, hero.getPlayerBet());
+        assertEquals(150, hero.getChipCount());
+        assertEquals(2, hero.getHand().size());
     }
 
     @Test
     public void testReraise() {
-        PokerPlayer hero = new PokerPlayer("Hero", 200);
-        PokerPlayer raisingPlayer = new PokerPlayer("Raiser", 200);
-        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
-        pokerPlayers.add(hero);
-        pokerPlayers.add(raisingPlayer);
-        PokerGame poker = new PokerGame(pokerPlayers);
-        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
-        poker.dealHoleCards();
-
         poker.playerAction(hero.bet(10));
-        poker.playerAction(raisingPlayer.raise(poker.getTableBet(), 40));
+        poker.setTableBet(50);
 
         hero.raise(poker.getTableBet(), 100);
 
-        Assert.assertEquals(150, hero.getPlayerBet());
-        Assert.assertEquals(50, hero.getChipCount());
-        Assert.assertEquals(2, hero.getHand().size());
+        assertEquals(150, hero.getPlayerBet());
+        assertEquals(50, hero.getChipCount());
+        assertEquals(2, hero.getHand().size());
     }
 
     @Test
     public void testGetHandAsString() {
-        PokerPlayer hero = new PokerPlayer("Hero", 200);
-        ArrayList<PokerPlayer> pokerPlayers = new ArrayList<PokerPlayer>();
-        pokerPlayers.add(hero);
-        PokerGame poker = new PokerGame(pokerPlayers);
-        poker.setPokerPlayersInHand(poker.getPokerPlayersAtTable());
-        poker.dealHoleCards();
-
-        Assert.assertTrue(hero.getHandAsString().contains("AH"));
-        Assert.assertTrue(hero.getHandAsString().contains("KH"));
-        Assert.assertEquals(2, hero.getHandAsString().size());
+        assertTrue(hero.getHandAsString().contains("AH"));
+        assertTrue(hero.getHandAsString().contains("KH"));
+        assertEquals(2, hero.getHandAsString().size());
     }
 }
